@@ -2,7 +2,6 @@ package fetcher
 
 import (
 	"encoding/json"
-	"fmt"
 	"os"
 )
 
@@ -35,6 +34,5 @@ func InitConfigFromJson() DBConfig {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(conf)
 	return conf
 }

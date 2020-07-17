@@ -1,13 +1,15 @@
 {
     "dbType" : "mysql",
-    "url" :"192.168.240.47",
-    "port":"3306",
+    "url" :"172.30.126.4",
+    "port":"13309",
     "uname":"homework",
     "passwd":"homework",
     "dbName":"homework_wechat_wxsk",
     "charSet": "utf8",
     "table":[
-        "tblWxRobotGroup",
-        "tblWxQunGroup"
+        "tblWxWorkRobot",
+        "tblWxWorkRobotLog",
+        "tblWxWorkBatch",
+        "tblWxWorkCustomer"
     ]
 }

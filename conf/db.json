@@ -4,12 +4,10 @@
     "port":"13309",
     "uname":"homework",
     "passwd":"homework",
-    "dbName":"homework_wechat_wxsk",
+    "dbName":"homework_wechat_wxworkuser",
     "charSet": "utf8",
     "table":[
-        "tblWxWorkRobot",
-        "tblWxWorkRobotLog",
-        "tblWxWorkBatch",
-        "tblWxWorkCustomer"
+        "tblWxWorkGroupMap",
+        "tblWxWorkGroupMember"
     ]
 }

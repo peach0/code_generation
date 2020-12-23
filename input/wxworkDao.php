@@ -11,7 +11,7 @@
  * @create:        {{.CreateTime}}
  * @last modified: {{.CreateTime}}
  */
-class Dao_Tag extends Dao_BaseDao
+class Dao_{{.FileName}} extends Dao_BaseDao
 {
     public function __construct() {
         parent::__construct();

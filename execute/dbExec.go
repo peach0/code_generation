@@ -31,6 +31,7 @@ func GetTemplate(conf fetcher.DBConfig) []dbTem {
 		"tinyint": " Hk_Service_Db::TYPE_INT,\n",
 		"bigint":  " Hk_Service_Db::TYPE_INT,\n",
 		"varchar": " Hk_Service_Db::TYPE_STR,\n",
+		"text":    " Hk_Service_Db::TYPE_STR,\n",
 	}
 
 	connect := conf.Uname + ":" + conf.Passwd + "@tcp(" + conf.Url + ":" + conf.Port + ")/" + conf.DbName + "?charset=" + conf.CharSet + "&parseTime=True&loc=Local"
@@ -65,7 +66,7 @@ func GetTemplate(conf fetcher.DBConfig) []dbTem {
 			var table Table
 			err = rows.Scan(&table.Field, &table.Type, &table.Comment)
 			FieldName := Marshal(table.Field)
-			fieldsMap += "            '" + FieldName + "' => '" + table.Field + "',  //" + table.Comment + "\r\n"
+			fieldsMap += "            '" + FieldName + "' => '" + table.Field + "',  //" + table.Comment + "\n"
 			typesMap += "            '" + FieldName + "' =>" + TypeMap[table.Type]
 		}
 		tem.ArrFieldsMap = fieldsMap

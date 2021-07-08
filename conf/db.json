@@ -4,10 +4,9 @@
     "port":"13309",
     "uname":"homework",
     "passwd":"homework",
-    "dbName":"homework_wechat_wxworkuser",
+    "dbName":"homework_wechat_crm",
     "charSet": "utf8",
     "table":[
-        "tblWxWorkGroupMap",
-        "tblWxWorkGroupMember"
+        "tblCollocationCourse"
     ]
 }

@@ -12,6 +12,7 @@ import (
 func main() {
 	conf := fetcher.InitConfigFromJson()
 	tems := execute.GetTemplate(conf)
+	//os.Mkdir("test1/haha", os.ModePerm)
 	for _, tem := range tems {
 		tmpl, err := template.ParseFiles("input/wxworkDao.php")
 		if err != nil {

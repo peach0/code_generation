@@ -19,6 +19,7 @@ type dbTem struct {
 }
 
 type Table struct {
+	FieldName string
 	TableName string
 	Field     string
 	Type      string
@@ -62,12 +63,25 @@ func GetTemplate(conf fetcher.DBConfig) []dbTem {
 		tableInfos.Next()
 		err = tableInfos.Scan(&name, &tem.TableComent)
 
+		var tables []Table
+		cnt := 0
+
 		for rows.Next() {
 			var table Table
 			err = rows.Scan(&table.Field, &table.Type, &table.Comment)
-			FieldName := Marshal(table.Field)
-			fieldsMap += "            '" + FieldName + "' => '" + table.Field + "',  //" + table.Comment + "\n"
-			typesMap += "            '" + FieldName + "' =>" + TypeMap[table.Type]
+			table.FieldName = Marshal(table.Field)
+			tables = append(tables, table)
+			if cnt < len(table.FieldName) {
+				cnt = len(table.FieldName)
+			}
+		}
+		for _, table := range tables {
+			space := ""
+			for i := 0; i < cnt-len(table.FieldName)+1; i++ {
+				space += " "
+			}
+			fieldsMap += "            '" + table.FieldName + "'" + space + "=> '" + table.Field + "',  //" + table.Comment + "\n"
+			typesMap += "            '" + table.FieldName + "'" + space + "=>" + TypeMap[table.Type]
 		}
 		tem.ArrFieldsMap = fieldsMap
 		tem.ArrTypesMap = typesMap
